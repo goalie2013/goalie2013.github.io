@@ -1,0 +1,38 @@
+// Menu Button
+.menu-btn {
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  @include easeOut;
+
+  // Hamburger Menu Icon
+  .btn-line {
+    width: 30px;
+    height: 3px;
+    margin-bottom: 5px;
+    background: #fff;
+    @include easeOut;
+  }
+
+  // Transition (Rotate) into Close Icon
+  &.close {
+    transform: rotate(90deg);
+
+    .btn-line {
+      &:nth-child(1) {
+        background: red;
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      &:nth-child(2) {
+        // display: none;
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        background: red;
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+  }
+}

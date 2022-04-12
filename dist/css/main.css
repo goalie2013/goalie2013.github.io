@@ -22,6 +22,35 @@
       background: red;
       transform: rotate(-45deg) translate(7px, -6px); }
 
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.8;
+  visibility: hidden; }
+  .menu.show {
+    visibility: visible;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px; }
+  .menu .menu-nav {
+    grid-column: 2;
+    grid-row: 1 / 2;
+    border: 1px solid black;
+    height: 100vh;
+    background: #373737;
+    display: grid;
+    align-items: center;
+    justify-content: center; }
+    .menu .menu-nav .nav-item {
+      text-align: center;
+      list-style: none;
+      margin: 2rem;
+      font-size: 1.5rem; }
+    .menu .menu-nav.show {
+      transform: translate3d(0, 0, 0); }
+
 * {
   box-sizing: border-box; }
 

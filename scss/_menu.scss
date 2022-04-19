@@ -1,7 +1,7 @@
 // Menu Button
 .menu-btn {
   position: absolute;
-  z-index: 3;
+  z-index: 100;
   right: 35px;
   top: 35px;
   cursor: pointer;
@@ -42,7 +42,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.8;
+  opacity: 0.9;
   visibility: hidden;
 
   &.show {
@@ -66,20 +66,26 @@
     grid-row: 1 / 2;
     border: 1px solid black;
     height: 100vh;
-    background: darken($primary-color, 5);
     display: grid;
     align-items: center;
     justify-content: center;
+    background: rgba(0, 0, 0, 1);
 
     .nav-item {
       text-align: center;
       list-style: none;
       margin: 2rem;
       font-size: 1.5rem;
-    }
+      text-transform: uppercase;
 
-    &.show {
-      transform: translate3d(0, 0, 0);
+      &.current > a {
+        color: $secondary-color;
+      }
+    }
+    .nav-link {
+      &:hover {
+        color: $secondary-color;
+      }
     }
   }
 }

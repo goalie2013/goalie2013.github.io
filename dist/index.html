@@ -5,18 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cardo&family=Roboto+Mono:wght@300;400&family=Rubik:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
     <!-- Font Awesome Kit -->
     <script
       src="https://kit.fontawesome.com/e2f4b015e3.js"
       crossorigin="anonymous"
     ></script>
+    <!-- Lottie -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <title>Welcome To My Portfolio</title>
   </head>
 
   <body id="bg-img">
-    <div class="overlay"></div>
-
-    <!-- Header: Nav Menu -->
+    <!-- Header -->
     <header>
       <div class="menu-btn">
         <div class="btn-line"></div>
@@ -25,13 +32,15 @@
         <!-- <i class="fa-solid fa-bars fa-2x"></i> -->
       </div>
 
+      <!-- Menu Nav -->
       <nav class="menu">
         <div class="menu-branding">
           <div class="portrait"></div>
         </div>
+
         <div class="menu-nav">
           <ul>
-            <li class="nav-item">
+            <li class="nav-item current">
               <a href="#home" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
@@ -49,31 +58,100 @@
     </header>
 
     <!-- Main -->
-    <main>
-      <section id="home">
-        <h1 class="lg-heading">
-          Mario <span class="text-secondary">Mario</span>
-        </h1>
-        <h2 class="sm-heading">
-          Web Developer, Programmer, Designer & Entrepreneur
-        </h2>
-        <div class="icons">
-          <a href="">
-            <i class="fab fa-twitter fa-2x"></i>
-          </a>
-          <a href="">
-            <i class="fab fa-facebook fa-2x"></i>
-          </a>
-          <a href="">
-            <i class="fab fa-linkedin fa-2x"></i>
-          </a>
-          <a href="">
-            <i class="fab fa-github fa-2x"></i>
-          </a>
-        </div>
-      </section>
-    </main>
+    <!-- <main> -->
+    <!-- Home -->
+    <section id="home">
+      <div class="overlay"></div>
 
-    <script src="js/main.js"></script>
+      <h1 class="lg-heading">
+        Mario <span class="text-secondary">Mario</span>
+      </h1>
+      <h2 class="sm-heading">
+        Web Developer, Programmer, Designer & Entrepreneur
+      </h2>
+      <div class="icons">
+        <a href="#">
+          <i class="fab fa-twitter fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-facebook fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-linkedin fa-2x"></i>
+        </a>
+        <a href="https://github.com/goalie2013/" target="_blank">
+          <i class="fab fa-github fa-2x"></i>
+        </a>
+      </div>
+      <!-- Down Arrow -->
+      <!-- TODO: Wrap link; when clicked, smooth transition to destination -->
+      <div class="d-arrow fa fa-caret-down fa-3x bounce"></div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h1 class="lg-heading hidden" id="projects-title">PROJECTS</h1>
+      <div class="projects-container">
+        <div class="pacman-container">
+          <div class="pacman">
+            <!-- <div class="pacman-a"> -->
+            <h3 class="project-header hidden">Pacman</h3>
+            <!-- </div> -->
+            <div class="pacman-b hidden">
+              <img
+                src="../dist/img/pacman1.png"
+                alt="Pacman mouth open"
+                class="hidden abc"
+              />
+              <!-- <img src="../dist/img/pacman2.png" alt="Pacman mouth closed" />
+              -->
+              <img
+                src="../dist/img/green_ghost.png"
+                alt="Pacman Green Ghost"
+                class="hidden green-ghost"
+              />
+              <img
+                src="../dist/img/ghost_blue.png"
+                alt="Pacman Blue Ghost"
+                class="hidden blue-ghost"
+              />
+            </div>
+          </div>
+
+          <div class="other">
+            <button class="project-btn">Live Project</button>
+          </div>
+        </div>
+
+        <div class="bus-container">
+          <div class="bus">
+            <h3 class="project-header hidden">Realtime Bus Routes</h3>
+            <div id="bm">
+              <lottie-player
+                src="https://assets8.lottiefiles.com/packages/lf20_cvcwsr0y.json"
+                background="transparent"
+                speed="1"
+                style="width: 40vw; height: 40vh; margin-left: 1rem"
+                loop
+                autoplay
+              ></lottie-player>
+            </div>
+          </div>
+          <div class="b-other">
+            <button class="project-btn">Live Project</button>
+          </div>
+        </div>
+
+        <!--  -->
+      </div>
+    </section>
+
+    <!-- </main> -->
+
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.2/lottie.min.js"
+      type="text/javascript"
+    ></script> -->
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>

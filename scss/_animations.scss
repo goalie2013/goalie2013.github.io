@@ -1,0 +1,60 @@
+.hidden {
+  opacity: 0;
+}
+
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}
+
+// Fade-In on Scroll
+.fade-in {
+  animation: fade-in 1.4s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7, 0.7);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Bounce Animation
+.bounce {
+  animation: bounce 1s infinite;
+  position: relative;
+}
+
+@keyframes bounce {
+  0% {
+    top: -2px;
+  }
+  50% {
+    top: 2px;
+  }
+  100% {
+    top: -2px;
+  }
+}
+
+// Pacman Animation
+.anim-pacman {
+  // animation: anim-pacman 8s ease-in infinite;
+}
+
+@keyframes anim-pacman {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 75vw;
+  }
+  60% {
+    left: 65vw;
+  }
+  100% {
+    left: -50%;
+  }
+}

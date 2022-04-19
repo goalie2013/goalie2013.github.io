@@ -1,0 +1,40 @@
+// Widescreens
+@include mediaXL {
+}
+
+// Desktops/Laptops
+@include mediaLg {
+}
+
+// Tablets & Small Laptops
+@include mediaMd {
+  section#home {
+    align-items: center;
+    text-align: center;
+  }
+  section {
+    .lg-heading {
+      line-height: 1;
+      margin-bottom: 2rem;
+      font-size: 5rem;
+    }
+    &#projects {
+      .project-header {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+// Phones (Vertical Orientation)
+@include mediaSm {
+  #projects-title {
+  }
+  section#home h1 {
+    margin-top: 10vh;
+    // color: blue;
+  }
+  //TODO: Change menu to 1 column 2 rows for small screen
+
+  //TODO: Change Pacman container to 1 column 2 rows OR just one big screen
+}

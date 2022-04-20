@@ -12,12 +12,10 @@ let posGhost = -300;
 const ghostObj = {};
 
 function runPacmanAnim() {
-  console.log("runPacmanAnim");
-
   const arrSize = pacArr.length;
   currPic = (currPic + 1) % arrSize;
   //directionPac = checkPageBounds(directionPac);
-  pacmanImg.src = `../dist/img/${pacArr[currPic]}`;
+  pacmanImg.src = `../img/${pacArr[currPic]}`;
   pacmanImg.alt = "Pacman";
 
   if (directionPac) {
@@ -41,9 +39,9 @@ function runGhostAnim(ghostImg) {
   // }
 
   if (ghostObj.imgArr) {
-    console.log("EXISTSSSS", ghostObj);
+    // console.log("EXISTSSSS", ghostObj);
     if (ghostObj.imgArr.length === 2) {
-      console.log("2 GHOSTS IN ARRAY");
+      // console.log("2 GHOSTS IN ARRAY");
     } else {
       ghostObj.imgArr.push(ghostImg);
     }
@@ -73,7 +71,7 @@ function runGhostAnim(ghostImg) {
     let velocity = -10;
 
     for (let obj of ghostObj.imgArr) {
-      console.log("parse", parseInt(obj.style.left));
+      // console.log("parse", parseInt(obj.style.left));
       let x = parseInt(obj.style.left);
       obj.style.left = x + velocity + "px";
     }
@@ -82,7 +80,7 @@ function runGhostAnim(ghostImg) {
     let velocity = 10;
 
     for (let obj of ghostObj.imgArr) {
-      console.log("parse", parseInt(obj.style.left));
+      // console.log("parse", parseInt(obj.style.left));
 
       let x = parseInt(obj.style.left);
       obj.style.left = x + velocity + "px";

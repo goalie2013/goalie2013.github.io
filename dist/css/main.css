@@ -253,44 +253,44 @@ section#projects {
     text-decoration: none;
     text-transform: uppercase; }
   section#projects .pacman-container {
-    background-image: linear-gradient(45deg, #6303b1, #e0970f);
+    background-image: linear-gradient(45deg, #fcede0, #dedbd5);
+    border: 2px solid white;
     position: relative;
-    min-height: 80vh;
+    min-height: 90vh;
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "pacman pacman other" "pacman pacman other"; }
-  section#projects .pacman {
-    grid-area: pacman;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-evenly; }
-  section#projects .pacman-b img {
-    height: 10vh;
-    width: 10vh;
-    margin: 1rem;
-    position: absolute;
-    left: -20px; }
-  section#projects .other {
-    background: skyblue;
-    grid-area: other;
-    display: grid;
-    place-items: center;
-    padding: 1rem;
-    z-index: 5; }
-    section#projects .other p {
-      font-size: 1.1rem;
-      padding: 0.5rem; }
-    section#projects .other .project-btn {
-      background-color: skyblue; }
-    section#projects .other .project-btn:hover {
-      transform: scale(1.08, 1.08); }
+    section#projects .pacman-container .pacman {
+      grid-area: pacman;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: space-evenly; }
+    section#projects .pacman-container .pacman-b img {
+      height: 10vh;
+      width: 10vh;
+      margin: 1rem;
+      position: absolute;
+      left: -20px; }
+    section#projects .pacman-container .other {
+      background: #e0f0fc;
+      grid-area: other;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      z-index: 5; }
+      section#projects .pacman-container .other p {
+        font-size: 1.2rem;
+        padding: 1rem; }
+      section#projects .pacman-container .other .project-btn {
+        background-color: skyblue; }
+      section#projects .pacman-container .other .project-btn:hover {
+        transform: scale(1.08, 1.08); }
   section#projects .bus-container {
-    background-color: #34adff;
-    background-image: -webkit-linear-gradient(150deg, #34adff 44%, #eee 36%);
-    min-height: 80vh;
+    background-image: linear-gradient(45deg, #fcfbfa, #f8faf4);
+    min-height: 90vh;
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(3, 1fr);
@@ -300,16 +300,76 @@ section#projects {
     grid-area: bus;
     display: flex;
     flex-direction: column;
-    align-items: start;
     justify-content: space-evenly; }
+    section#projects .bus #bm {
+      align-self: center; }
+    section#projects .bus #busGif {
+      width: 25vw;
+      height: 35vh;
+      box-shadow: 5px 5px 5px rgba(196, 188, 188, 0.8); }
   section#projects .b-other {
     grid-area: b-other;
+    background: #d5e8f4;
     display: grid;
     place-items: center;
     padding: 1rem; }
+    section#projects .b-other p {
+      font-size: 1.2rem;
+      padding: 1rem; }
     section#projects .b-other .project-btn {
       background-color: #34adff; }
     section#projects .b-other .project-btn:hover {
+      transform: scale(1.08, 1.08); }
+  section#projects .eyes-container {
+    background-image: linear-gradient(45deg, #fcede0, #dedbd5);
+    min-height: 90vh;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "eyesL eyesL eyesR" "eyesL eyesL eyesR"; }
+  section#projects .eyes-left {
+    grid-area: eyesL;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly; }
+    section#projects .eyes-left .eyes {
+      display: flex;
+      flex-direction: row;
+      position: absolute;
+      transform: translateY(-50%);
+      border: 5px solid brown; }
+    section#projects .eyes-left .eye {
+      width: 20vw;
+      height: 15vh;
+      background: #fff;
+      display: inline-block;
+      margin: 40px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden; }
+    section#projects .eyes-left .eyeball {
+      width: 6vw;
+      height: 9vh;
+      background: #000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%; }
+  section#projects .eyes-right {
+    background: #e0f0fc;
+    grid-area: eyesR;
+    display: grid;
+    place-items: center;
+    padding: 1rem; }
+    section#projects .eyes-right p {
+      font-size: 1.2rem;
+      padding: 1rem; }
+    section#projects .eyes-right .project-btn {
+      background-color: skyblue; }
+    section#projects .eyes-right .project-btn:hover {
       transform: scale(1.08, 1.08); }
 
 @media screen and (max-width: 650px) {
@@ -317,6 +377,8 @@ section#projects {
     visibility: hidden; }
   .sm-nav {
     visibility: visible; }
+  #projects-body#projects-nav {
+    visibility: hidden; }
   .menu.show {
     visibility: visible;
     display: grid;
@@ -351,8 +413,27 @@ section#projects {
     margin-bottom: 2rem;
     font-size: 5rem; }
   section#projects .project-header {
-    font-size: 3rem; } }
+    font-size: 3rem; }
+  section#projects #pContainer .eyes {
+    top: 55%; }
+  section#projects #pContainer .eye {
+    width: 15vw;
+    height: 10vh; }
+  section#projects #pContainer .eyeball {
+    width: 6vw;
+    height: 6vh; } }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 537px) {
+  section#projects #pContainer h3 {
+    font-size: 2rem; }
+  section#projects #pContainer .eyes {
+    top: 55%;
+    width: 100%; }
+  section#projects #pContainer .eye {
+    width: 6vw;
+    height: 5vh; }
+  section#projects #pContainer .eyeball {
+    width: 2vw;
+    height: 2vh; }
   section#home h1 {
     margin-top: 10vh; } }

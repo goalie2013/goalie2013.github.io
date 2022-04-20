@@ -17,7 +17,7 @@ $home-img: url(../img/lightbulb2.jpeg);
 
 // Media Query Mixins
 @mixin mediaSm {
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 537px) {
     @content;
   }
 }

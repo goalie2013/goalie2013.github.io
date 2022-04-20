@@ -4,14 +4,15 @@
   font-family: "Cardo", "Roboto Mono";
 }
 
-// #projects-nav {
-//   color: red;
-//   position: static;
-//   &:hover {
-//     color: red;
-//     @include easeOut();
-//   }
-// }
+#projects-nav {
+  a {
+    color: $primary-color;
+    &:hover {
+      color: $secondary-color;
+      @include easeOut();
+    }
+  }
+}
 
 section {
   &#projects {
@@ -35,7 +36,7 @@ section {
         align-self: center;
         margin-top: auto;
         color: $secondary-color;
-        z-index: 33;
+        z-index: 3;
       }
     }
 
@@ -105,12 +106,18 @@ section {
       padding: 1rem;
       z-index: 5;
 
+      p {
+        font-size: 1.1rem;
+        padding: 0.5rem;
+      }
+
       .project-btn {
         background-color: skyblue;
       }
       .project-btn:hover {
-        background-color: $white;
-        color: skyblue;
+        // background-color: $white;
+        // color: skyblue;
+        transform: scale(1.08, 1.08);
       }
     }
 
@@ -150,7 +157,7 @@ section {
       .project-btn:hover {
         // background-color: $white;
         // color: #34adff;
-        transform: scale(1.1, 1.1);
+        transform: scale(1.08, 1.08);
       }
     }
   }

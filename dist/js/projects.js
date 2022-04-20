@@ -1,12 +1,16 @@
 "use strict";
 
-import { runPacmanAnim, runGhostAnim } from "./pacman.js";
+import {
+  makePacman,
+  ghostFactory,
+  runPacmanAnim,
+  runGhostAnim,
+} from "./pacman.js";
 
 const menuBtn = document.querySelector(".menu-btn");
 const menuBtnLine = document.getElementsByClassName("btn-line");
 const menu = document.querySelector(".menu");
 const pacmanImg = document.querySelector(".abc");
-const projectsTitle = document.getElementById("projects-title");
 const projectsNav = document.querySelector(".projects-jumbotron");
 const nav = document.getElementById("projects-nav");
 
@@ -43,7 +47,7 @@ function _addEventHandlers() {
 
 function _checkPosHiddenEls() {
   for (let elem of hiddenEls) {
-    let posY = elem.getBoundingClientRect().top;
+    const posY = elem.getBoundingClientRect().top;
     if (posY - windowHeight <= 0)
       // Then element is on screen!
       elem.className = elem.className.replace("hidden", "fade-in");
@@ -88,18 +92,31 @@ function _checkPositionNav() {
 function _checkPosPacman() {
   const blueGhost = document.querySelector(".blue-ghost");
   const greenGhost = document.querySelector(".green-ghost");
+  const posY = pacmanImg.getBoundingClientRect().top;
 
-  let posY = pacmanImg.getBoundingClientRect().top;
+  // 'anim-pacman' class gets added first time invoked, so used to setup initial positions of ghosts
   if (!pacmanImg.classList.contains("anim-pacman")) {
     if (posY - windowHeight <= 0) {
-      blueGhost.style.left = "-80px";
-      greenGhost.style.left = "-160px";
-
       pacmanImg.classList.add("anim-pacman");
-      runPacmanAnim();
-      console.log("blueGhost", blueGhost.style);
-      runGhostAnim(blueGhost);
-      runGhostAnim(greenGhost);
+
+      // Set initial positions of elements
+      pacmanImg.style.left = "40px";
+      blueGhost.style.left = "-220px";
+      greenGhost.style.left = "-400px";
+
+      console.log("blueGhost", blueGhost);
+
+      const pacmanObj = makePacman(pacmanImg);
+      const blueGhostObj = ghostFactory(blueGhost);
+      const greenGhostObj = ghostFactory(greenGhost);
+      const ghostArr = [blueGhostObj, greenGhostObj];
+
+      console.log("ghostArr", ghostArr);
+
+      runPacmanAnim(pacmanObj);
+      // runGhostAnim(blueGhostObj);
+      // runGhostAnim(greenGhostObj);
+      runGhostAnim(ghostArr);
     }
   }
 }

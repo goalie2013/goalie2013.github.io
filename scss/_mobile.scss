@@ -15,6 +15,25 @@
     visibility: visible;
   }
 
+  .menu {
+    &.show {
+      visibility: visible;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+    .menu-nav {
+      grid-column: 1;
+      grid-row: 1;
+      border: 1px solid black;
+      height: 100vh;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 1);
+    }
+  }
+
   section#home {
     align-items: center;
     text-align: center;

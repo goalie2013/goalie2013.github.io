@@ -1,121 +1,137 @@
 "use strict";
 
 const container = document.querySelector(".pacman");
-const pacmanImg = document.querySelector(".abc");
 const pacArr = ["pacman1.png", "pacman2.png", "pacman2.png", "pacman1.png"];
 let directionPac = 0;
-let directionGhost = 0;
 let currPic = 0;
 let pos = -20;
-let posGhost = -300;
+let interval;
 
+let pacmanObj = {};
 const ghostObj = {};
 
-function runPacmanAnim() {
-  const arrSize = pacArr.length;
-  currPic = (currPic + 1) % arrSize;
-  //directionPac = checkPageBounds(directionPac);
-  pacmanImg.src = `../img/${pacArr[currPic]}`;
-  pacmanImg.alt = "Pacman";
+function makePacman(pacmanImg) {
+  let currPic = 0;
+  let direction = 0;
+  let positionX = 40;
 
-  if (directionPac) {
-    pos -= 20;
-    pacmanImg.style.left = pos + "px";
+  return {
+    img: pacmanImg,
+    direction,
+    positionX,
+    currPic,
+  };
+}
+
+function runPacmanAnim(pmanObj) {
+  console.log("pmanObj", pmanObj);
+  if (pmanObj) {
+    pacmanObj = pmanObj;
   } else {
-    pos += 20;
-    pacmanImg.style.left = pos + "px";
+  }
+  console.log("pacmanObj", pacmanObj);
+  const arrSize = pacArr.length;
+  pacmanObj.currPic = (pacmanObj.currPic + 1) % arrSize;
+  //directionPac = checkPageBounds(directionPac);
+  pacmanObj.img.src = `../img/${pacArr[pacmanObj.currPic]}`;
+  pacmanObj.img.alt = "Pacman";
+
+  pacmanObj.direction = _checkBoundaries(pacmanObj);
+
+  if (pacmanObj.direction) {
+    pacmanObj.positionX -= 20;
+
+    pacmanObj.img.style.left = pacmanObj.positionX + "px";
+    pacmanObj.img.style.top = "40%";
+  } else {
+    pacmanObj.positionX += 20;
+    pacmanObj.img.style.left = pacmanObj.positionX + "px";
+    pacmanObj.img.style.top = "70%";
   }
 
   setTimeout(runPacmanAnim, 100);
 }
 
-function runGhostAnim(ghostImg) {
-  // Need to store in Object bc parameters get erased after the first time setTimeout is called
-  // if (ghostObj.img) {
-  //   console.log("EXISTSSSS", ghostObj.img);
-  // } else {
-  //   console.log("DOES NOT EXIST");
-  //   ghostObj.img = ghostImg;
-  // }
-
-  if (ghostObj.imgArr) {
-    // console.log("EXISTSSSS", ghostObj);
-    if (ghostObj.imgArr.length === 2) {
-      // console.log("2 GHOSTS IN ARRAY");
-    } else {
-      ghostObj.imgArr.push(ghostImg);
-    }
-  } else {
-    console.log("DOES NOT EXIST");
-    ghostObj.imgArr = [ghostImg];
-  }
-
-  for (let obj of ghostObj.imgArr) {
-    obj.alt = "Pacman Ghost";
-  }
-  // ghostObj.img.alt = "Pacman Ghost";
-
-  directionGhost = _checkPageBounds(directionGhost, posGhost);
-
-  // Move Ghost Right or Left
-  // if (directionGhost) {
-  //   posGhost -= 20;
-  //   ghostObj.img.style.left = posGhost + "px";
-  // } else {
-  //   posGhost += 20;
-  //   ghostObj.img.style.left = posGhost + "px";
-  // }
-
-  if (directionGhost) {
-    posGhost -= 10;
-    let velocity = -10;
-
-    for (let obj of ghostObj.imgArr) {
-      // console.log("parse", parseInt(obj.style.left));
-      let x = parseInt(obj.style.left);
-      obj.style.left = x + velocity + "px";
-    }
-  } else {
-    posGhost += 10;
-    let velocity = 10;
-
-    for (let obj of ghostObj.imgArr) {
-      // console.log("parse", parseInt(obj.style.left));
-
-      let x = parseInt(obj.style.left);
-      obj.style.left = x + velocity + "px";
-    }
-  }
-
-  setTimeout(runGhostAnim, 100);
-}
-
-function _checkPageBounds(direction, pos) {
+function _checkBoundaries(el) {
   const containerEdge = container.getBoundingClientRect().right;
 
   // If ghost at edge -> change direction & horizontally flip image
-  if (direction === 0 && pos > containerEdge) {
-    direction = 1;
-    // ghostObj.img.src = "../dist/img/ghost_blue_2.png";
+  if (el.direction === 0 && el.positionX > containerEdge) {
+    el.direction = 1;
 
-    // ghostObj.img.style = "transform: scaleX(-1)";
-    // ghostObj.img.style.top = "40%";
-
-    for (let obj of ghostObj.imgArr) {
-      obj.style.transform = "scaleX(-1)";
-      obj.style.top = "40%";
-    }
+    el.img.style.transform = "scaleX(-1)";
+    el.img.style.top = "40%";
   }
-  if (direction === 1 && pos <= -200) {
-    direction = 0;
-    // ghostObj.img.style = "transform: scaleX(1)";
+  if (el.direction === 1 && el.positionX <= -200) {
+    el.direction = 0;
 
-    for (let obj of ghostObj.imgArr) {
-      obj.style.transform = "scaleX(1)";
-    }
+    el.img.style.transform = "scaleX(1)";
+    el.img.style.top = "70%";
   }
 
-  return direction;
+  return el.direction;
 }
 
-export { runPacmanAnim, runGhostAnim };
+function ghostFactory(ghostImg) {
+  let direction = 0;
+  let positionX = parseInt(ghostImg.style.left);
+  const velocity = { x: 20, y: 20 };
+
+  return {
+    img: ghostImg,
+    positionX,
+    direction,
+    velocity,
+  };
+}
+
+function runGhostAnim(ghostArr) {
+  // Need to store in Object bc parameters get erased after the first time setTimeout is called
+
+  if (ghostObj.ghosts) {
+    console.log("GHOSTS");
+  } else {
+    console.log("NOT GHOSTS");
+    ghostObj.ghosts = ghostArr;
+  }
+
+  // console.log(ghostObj.ghosts);
+  ghostObj.ghosts.forEach((ghost) => {
+    console.log("ghost", ghost);
+    ghost.direction = _checkPageBounds(ghost);
+
+    if (ghost.direction) {
+      ghost.positionX -= ghost.velocity.x;
+
+      ghost.img.style.left = ghost.positionX + "px";
+    } else {
+      ghost.positionX += ghost.velocity.x;
+
+      ghost.img.style.left = ghost.positionX + "px";
+    }
+  });
+
+  interval = setTimeout(runGhostAnim, 100);
+}
+
+function _checkPageBounds(ghost) {
+  const containerEdge = container.getBoundingClientRect().right;
+
+  // If ghost at edge -> change direction & horizontally flip image
+  if (ghost.direction === 0 && ghost.positionX > containerEdge) {
+    ghost.direction = 1;
+
+    ghost.img.style.transform = "scaleX(-1)";
+    ghost.img.style.top = "40%";
+  }
+  if (ghost.direction === 1 && ghost.positionX <= -200) {
+    ghost.direction = 0;
+
+    ghost.img.style.transform = "scaleX(1)";
+    ghost.img.style.top = "70%";
+  }
+
+  return ghost.direction;
+}
+
+export { makePacman, ghostFactory, runPacmanAnim, runGhostAnim };

@@ -55,13 +55,13 @@
         <div class="menu-nav">
           <ul>
             <li class="nav-item current">
-              <a href="#home" class="nav-link">Home</a>
+              <a href="../../index.html" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
               <a href="#about" class="nav-link">About Me</a>
             </li>
             <li class="nav-item">
-              <a href="#projects" class="nav-link">Projects</a>
+              <a href="./projects.html" class="nav-link">Projects</a>
             </li>
             <li class="nav-item">
               <a href="#contact" class="nav-link">Contact</a>
@@ -76,14 +76,15 @@
       <div class="projects-jumbotron">
         <h1 class="lg-heading" id="projects-title">PROJECTS</h1>
         <!-- Down Arrow -->
-        <!-- TODO: Wrap link; when clicked, smooth transition to destination -->
-        <div class="d-arrow fa fa-caret-down fa-3x bounce"></div>
+        <a href="#pContainer" class="arrow-link">
+          <div class="d-arrow fa fa-caret-down fa-3x bounce"></div>
+        </a>
       </div>
-      <div class="projects-container">
+      <div class="projects-container" id="pContainer">
         <div class="pacman-container">
           <div class="pacman">
             <!-- <div class="pacman-a"> -->
-            <h3 class="project-header hidden">Pacman</h3>
+            <h3 class="project-header hidden">Pacman Factory</h3>
             <!-- </div> -->
             <div class="pacman-b hidden">
               <img
@@ -107,7 +108,23 @@
           </div>
 
           <div class="other">
-            <button class="project-btn">Live Project</button>
+            <p>
+              Pacman Factory shows understanding of Object Creation using the
+              Factory Method, as well as DOM Manipulation by adding, moving, and
+              removing Pac-Men from the screen.
+            </p>
+            <a
+              href="https://github.com/goalie2013/pacman-factory"
+              target="_blank"
+            >
+              <button class="project-btn">Github Repo</button>
+            </a>
+            <a
+              href="https://goalie2013.github.io/pacman-factory/"
+              target="_blank"
+            >
+              <button class="project-btn">Live Project</button>
+            </a>
           </div>
         </div>
 

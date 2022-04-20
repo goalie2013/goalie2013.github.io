@@ -65,9 +65,11 @@
   .menu.show {
     visibility: visible;
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 2px; }
   .menu .menu-nav {
-    grid-column: 1 / 2;
+    grid-column: 2;
     grid-row: 1 / 2;
     border: 1px solid black;
     height: 100vh;
@@ -191,7 +193,8 @@ section#home {
     margin-top: 1rem;
     display: flex;
     flex-direction: row;
-    align-items: flex-end; }
+    align-items: flex-end;
+    justify-content: flex-start; }
     section#home .icons a {
       padding: 0.4rem;
       margin-left: 0.8rem; }
@@ -206,6 +209,12 @@ section#home {
 
 #projects-body {
   font-family: "Cardo", "Roboto Mono"; }
+
+#projects-nav a {
+  color: #302f2f; }
+  #projects-nav a:hover {
+    color: #69bdf8;
+    transition: all 0.6s ease-out; }
 
 section#projects {
   background: #eee;
@@ -225,7 +234,7 @@ section#projects {
       align-self: center;
       margin-top: auto;
       color: #69bdf8;
-      z-index: 33; }
+      z-index: 3; }
   section#projects h3 {
     font-size: 4rem;
     margin-left: 1rem;
@@ -271,11 +280,13 @@ section#projects {
     place-items: center;
     padding: 1rem;
     z-index: 5; }
+    section#projects .other p {
+      font-size: 1.1rem;
+      padding: 0.5rem; }
     section#projects .other .project-btn {
       background-color: skyblue; }
     section#projects .other .project-btn:hover {
-      background-color: #fff;
-      color: skyblue; }
+      transform: scale(1.08, 1.08); }
   section#projects .bus-container {
     background-color: #34adff;
     background-image: -webkit-linear-gradient(150deg, #34adff 44%, #eee 36%);
@@ -299,13 +310,27 @@ section#projects {
     section#projects .b-other .project-btn {
       background-color: #34adff; }
     section#projects .b-other .project-btn:hover {
-      transform: scale(1.1, 1.1); }
+      transform: scale(1.08, 1.08); }
 
 @media screen and (max-width: 650px) {
   .main-nav {
     visibility: hidden; }
   .sm-nav {
     visibility: visible; }
+  .menu.show {
+    visibility: visible;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr; }
+  .menu .menu-nav {
+    grid-column: 1;
+    grid-row: 1;
+    border: 1px solid black;
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background: black; }
   section#home {
     align-items: center;
     text-align: center; }

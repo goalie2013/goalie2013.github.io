@@ -8,9 +8,38 @@
 
 // Tablets & Small Laptops
 @include mediaMd {
+  .main-nav {
+    visibility: hidden;
+  }
+  .sm-nav {
+    visibility: visible;
+  }
+
   section#home {
     align-items: center;
     text-align: center;
+
+    .home-container {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-areas:
+        "img img"
+        "home-txt home-txt";
+      .home-text {
+        h1 {
+          margin-top: 5vh;
+        }
+        .icons {
+          justify-content: center;
+        }
+      }
+      .home-img {
+        margin-top: 2vh;
+        img {
+          height: 100%;
+        }
+      }
+    }
   }
   section {
     .lg-heading {

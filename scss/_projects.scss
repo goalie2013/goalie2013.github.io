@@ -1,0 +1,157 @@
+@import "config";
+
+#projects-body {
+  font-family: "Cardo", "Roboto Mono";
+}
+
+// #projects-nav {
+//   color: red;
+//   position: static;
+//   &:hover {
+//     color: red;
+//     @include easeOut();
+//   }
+// }
+
+section {
+  &#projects {
+    background: #eee;
+    min-height: 100vh;
+    color: black;
+
+    .projects-jumbotron {
+      display: flex;
+      flex-flow: column;
+      min-height: 90vh;
+      padding: 4rem;
+      align-items: center;
+      justify-content: center;
+      #projects-title {
+        // min-height: 80vh;
+        align-self: center;
+        margin: auto;
+      }
+      .d-arrow {
+        align-self: center;
+        margin-top: auto;
+        color: $secondary-color;
+        z-index: 33;
+      }
+    }
+
+    h3 {
+      font-size: 4rem;
+      margin-left: 1rem;
+      margin-top: -1rem;
+    }
+
+    .projects-container {
+      display: grid;
+      //   gap: 2rem;
+      //   background-color: rgb(209, 204, 204);
+    }
+
+    .project-btn {
+      box-shadow: 2px 4px 4px;
+      color: $white;
+      cursor: pointer;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      margin: 30px 15px 0 0;
+      padding: 20px 40px;
+      outline: 2px solid $white;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .pacman-container {
+      //   transform: skewX(3deg);
+      background-image: linear-gradient(45deg, #6303b1, #e0970f);
+      position: relative;
+      min-height: 80vh;
+      display: grid;
+      gap: 5px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+        "pacman pacman other"
+        "pacman pacman other";
+    }
+
+    .pacman {
+      grid-area: pacman;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: space-evenly;
+    }
+
+    .pacman-b {
+      img {
+        height: 10vh;
+        width: 10vh;
+        margin: 1rem;
+        position: absolute;
+        left: -20px;
+      }
+    }
+
+    .other {
+      background: skyblue;
+      grid-area: other;
+      //   border: 5px solid black;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      z-index: 5;
+
+      .project-btn {
+        background-color: skyblue;
+      }
+      .project-btn:hover {
+        background-color: $white;
+        color: skyblue;
+      }
+    }
+
+    .bus-container {
+      //   transform: skewY(3deg);
+      background-color: #34adff;
+      background-image: -webkit-linear-gradient(150deg, #34adff 44%, #eee 36%);
+      min-height: 80vh;
+      display: grid;
+      gap: 5px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+        "bus bus b-other"
+        "bus bus b-other";
+    }
+
+    .bus {
+      grid-area: bus;
+      //   border: 5px solid black;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: space-evenly;
+    }
+
+    .b-other {
+      grid-area: b-other;
+      //   border: 5px solid black;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+
+      .project-btn {
+        background-color: #34adff;
+      }
+      .project-btn:hover {
+        // background-color: $white;
+        // color: #34adff;
+        transform: scale(1.1, 1.1);
+      }
+    }
+  }
+}

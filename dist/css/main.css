@@ -39,13 +39,12 @@
   right: 35px;
   top: 35px;
   cursor: pointer;
-  transition: all 0.5s ease-out; }
+  transition: all 0.6s ease-out; }
   .menu-btn .btn-line {
     width: 30px;
     height: 3px;
     margin-bottom: 5px;
-    background: #fff;
-    transition: all 0.5s ease-out; }
+    background: #fff; }
   .menu-btn.close {
     transform: rotate(90deg); }
     .menu-btn.close .btn-line:nth-child(1) {
@@ -61,16 +60,14 @@
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.9;
+  opacity: 0.98;
   visibility: hidden; }
   .menu.show {
     visibility: visible;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     gap: 2px; }
   .menu .menu-nav {
-    grid-column: 2;
+    grid-column: 1 / 2;
     grid-row: 1 / 2;
     border: 1px solid black;
     height: 100vh;
@@ -85,9 +82,11 @@
       font-size: 1.5rem;
       text-transform: uppercase; }
       .menu .menu-nav .nav-item.current > a {
-        color: #eece1a; }
-    .menu .menu-nav .nav-link:hover {
-      color: #eece1a; }
+        color: #69bdf8; }
+    .menu .menu-nav .nav-link {
+      color: #fff; }
+      .menu .menu-nav .nav-link:hover {
+        color: #69bdf8; }
 
 * {
   box-sizing: border-box; }
@@ -95,9 +94,8 @@
 body {
   background: #302f2f;
   color: #fff;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-family: "Cardo", "Roboto Mono";
-  min-height: 100%;
+  font-family: "Cardo", "Roboto Mono", "Segoe UI", Tahoma;
+  height: 100%;
   line-height: 1.5;
   margin: 0; }
   body#bg-img {
@@ -143,37 +141,91 @@ header {
   z-index: 20; }
 
 .text-secondary {
-  color: #eece1a; }
+  color: #69bdf8; }
+
+.sm-nav {
+  visibility: hidden; }
+
+.main-nav ul {
+  display: grid;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr); }
+
+.main-nav a {
+  display: block;
+  padding: 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow);
+  cursor: pointer; }
+  .main-nav a:hover {
+    color: #69bdf8;
+    transition: all 0.6s ease-out; }
 
 section#home {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
   padding: 4rem; }
-  section#home h1 {
-    margin-top: 20vh; }
+  section#home .home-container {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-areas: "home-txt home-txt img" "home-txt home-txt img"; }
+    section#home .home-container .home-text {
+      grid-area: home-txt; }
+      section#home .home-container .home-text h1 {
+        margin-top: 20vh; }
+    section#home .home-container .home-img {
+      grid-area: img;
+      position: relative;
+      margin-top: 20vh; }
+      section#home .home-container .home-img img {
+        width: 20vw;
+        height: auto;
+        border-radius: 5%; }
   section#home .icons {
-    margin-top: 1rem; }
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end; }
     section#home .icons a {
-      padding: 0.4rem; }
+      padding: 0.4rem;
+      margin-left: 0.8rem; }
       section#home .icons a:hover {
-        color: #eece1a;
-        transition: all 0.5s ease-out; }
-  section#home .d-arrow {
-    align-self: center;
-    margin-top: auto;
-    color: #eece1a;
-    z-index: 33; }
+        color: #69bdf8;
+        transition: all 0.6s ease-out; }
+    section#home .icons #github-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+
+#projects-body {
+  font-family: "Cardo", "Roboto Mono"; }
 
 section#projects {
   background: #eee;
-  min-height: 50vh;
+  min-height: 100vh;
   color: black; }
-  section#projects #projects-title {
+  section#projects .projects-jumbotron {
     display: flex;
+    flex-flow: column;
+    min-height: 90vh;
+    padding: 4rem;
     align-items: center;
-    justify-content: center;
-    min-height: 50vh; }
+    justify-content: center; }
+    section#projects .projects-jumbotron #projects-title {
+      align-self: center;
+      margin: auto; }
+    section#projects .projects-jumbotron .d-arrow {
+      align-self: center;
+      margin-top: auto;
+      color: #69bdf8;
+      z-index: 33; }
   section#projects h3 {
     font-size: 4rem;
     margin-left: 1rem;
@@ -194,7 +246,7 @@ section#projects {
   section#projects .pacman-container {
     background-image: linear-gradient(45deg, #6303b1, #e0970f);
     position: relative;
-    min-height: 75vh;
+    min-height: 80vh;
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(3, 1fr);
@@ -227,7 +279,7 @@ section#projects {
   section#projects .bus-container {
     background-color: #34adff;
     background-image: -webkit-linear-gradient(150deg, #34adff 44%, #eee 36%);
-    min-height: 75vh;
+    min-height: 80vh;
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(3, 1fr);
@@ -250,9 +302,25 @@ section#projects {
       transform: scale(1.1, 1.1); }
 
 @media screen and (max-width: 650px) {
+  .main-nav {
+    visibility: hidden; }
+  .sm-nav {
+    visibility: visible; }
   section#home {
     align-items: center;
     text-align: center; }
+    section#home .home-container {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-areas: "img img" "home-txt home-txt"; }
+      section#home .home-container .home-text h1 {
+        margin-top: 5vh; }
+      section#home .home-container .home-text .icons {
+        justify-content: center; }
+      section#home .home-container .home-img {
+        margin-top: 2vh; }
+        section#home .home-container .home-img img {
+          height: 100%; }
   section .lg-heading {
     line-height: 1;
     margin-bottom: 2rem;

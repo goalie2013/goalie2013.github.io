@@ -8,46 +8,30 @@
 
 // Tablets & Small Laptops
 @include mediaMd {
+  html {
+    font-size: 12px;
+  }
+  // Regular Nav
   .main-nav {
     visibility: hidden;
+  }
+  #header-projects {
+    .main-nav {
+      a {
+        visibility: hidden;
+      }
+    }
   }
   .sm-nav {
     visibility: visible;
   }
 
-  #projects-body#projects-nav {
-    visibility: hidden;
-  }
-
-  .menu {
-    &.show {
-      visibility: visible;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-    }
-    .menu-nav {
-      grid-column: 1;
-      grid-row: 1;
-      border: 1px solid black;
-      height: 100vh;
-      display: grid;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 1);
-    }
-  }
-
+  // Home
   section#home {
     align-items: center;
     text-align: center;
 
     .home-container {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-areas:
-        "img img"
-        "home-txt home-txt";
       .home-text {
         h1 {
           margin-top: 5vh;
@@ -58,33 +42,87 @@
       }
       .home-img {
         margin-top: 2vh;
-        img {
-          height: 100%;
-        }
       }
     }
   }
+}
+
+@include projectsMd {
+  // Projects
   section {
-    .lg-heading {
-      line-height: 1;
-      margin-bottom: 2rem;
-      font-size: 5rem;
-    }
     &#projects {
-      .project-header {
-        font-size: 3rem;
+      .projects-jumbotron {
+        #projects-title {
+          font-size: 3rem;
+        }
       }
-      #pContainer {
-        .eyes {
-          top: 55%;
+
+      .projects-container {
+        .project-header {
+          font-size: 2rem;
         }
-        .eye {
-          width: 15vw;
-          height: 10vh;
+        .pacman-container {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas:
+            "pacman"
+            "other";
+
+          .pacman {
+            grid-area: pacman;
+            display: flex;
+            flex-direction: column;
+          }
+          .other {
+            grid-area: other;
+          }
+          .pacman-b {
+            img {
+              height: 5vh;
+              width: 5vw;
+            }
+          }
         }
-        .eyeball {
-          width: 6vw;
-          height: 6vh;
+        .bus-container {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas:
+            "bus"
+            "b-other";
+
+          .bus {
+            #busGif {
+              width: 35vw;
+              height: 25vh;
+              box-shadow: 5px 5px 5px rgba(196, 188, 188, 0.8);
+            }
+          }
+        }
+
+        .eyes-container {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas:
+            "eyesL"
+            "eyesR";
+
+          .eyesL {
+            grid-area: eyesL;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+          }
+          #eyes {
+            align-self: center;
+          }
+          .eye {
+            width: 25vw;
+            height: 15vh;
+          }
+          .eyeball {
+            width: 6vw;
+            height: 6vh;
+          }
         }
       }
     }
@@ -93,29 +131,42 @@
 
 // Phones (Vertical Orientation)
 @include mediaSm {
-  section#projects {
-    #pContainer {
-      h3 {
-        font-size: 2rem;
-      }
-      .eyes {
-        top: 55%;
-        width: 100%;
-      }
-      .eye {
-        width: 6vw;
-        height: 5vh;
-      }
-      .eyeball {
-        width: 2vw;
-        height: 2vh;
+  // Menu
+  .menu {
+    .menu-nav {
+      .nav-item {
+        font-size: 1rem;
       }
     }
   }
+
+  // Home
   section#home h1 {
     margin-top: 10vh;
     // color: blue;
   }
+
+  // Projects
+  // section#projects {
+  //   #pContainer {
+  //     h3 {
+  //       font-size: 2rem;
+  //     }
+  //     .eyes {
+  //       top: 55%;
+  //       width: 100%;
+  //     }
+  //     .eye {
+  //       width: 6vw;
+  //       height: 5vh;
+  //     }
+  //     .eyeball {
+  //       width: 2vw;
+  //       height: 2vh;
+  //     }
+  //   }
+  // }
+
   //TODO: Change menu to 1 column 2 rows for small screen
 
   //TODO: Change Pacman container to 1 column 2 rows OR just one big screen

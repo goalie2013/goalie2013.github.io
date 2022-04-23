@@ -5,6 +5,7 @@ import {
   ghostFactory,
   runPacmanAnim,
   runGhostAnim,
+  resetPacmenAnim,
 } from "./pacman.js";
 
 const menuBtn = document.querySelector(".menu-btn");
@@ -12,10 +13,10 @@ const menuBtnLine = document.getElementsByClassName("btn-line");
 const menu = document.querySelector(".menu");
 const pacmanImg = document.querySelector(".abc");
 const projectsNav = document.querySelector(".projects-jumbotron");
-const nav = document.getElementById("projects-nav");
+const nav = document.querySelector(".main-nav");
 
 // Initial State of Menu
-let showMenu = false;
+let showMenu;
 
 // For Animation on Scroll
 let hiddenEls;
@@ -25,26 +26,37 @@ let windowHeight;
 // Get all elements with class 'hidden'; put in Array 'hiddenEls'; on scroll, loop through Array and check if element/s are on screen (using .getBoundingClientRect());
 // If on the screen -> replace 'hidden' class with 'fade-in' class
 function _init() {
+  showMenu = false;
   hiddenEls = document.getElementsByClassName("hidden");
   windowHeight = window.innerHeight;
+
+  if (pacmanImg.classList.contains("anim-pacman")) {
+    resetPacmenAnim();
+    // pacmanImg.classList.remove("anim-pacman");
+  }
+
   _checkPosHiddenEls();
-  _checkPositionMenuBtn();
-  _checkPositionNav();
+  _checkPosPacman();
+  // _checkPositionMenuBtn();
+  // _checkPositionNav();
   _addEventHandlers();
 }
 
 function _addEventHandlers() {
+  window.addEventListener("resize", _init);
   window.addEventListener("scroll", _checkPosHiddenEls);
-  window.addEventListener("scroll", _checkPositionMenuBtn);
-  window.addEventListener("scroll", _checkPositionNav);
   window.addEventListener("scroll", _checkPosPacman);
 
-  // If window gets resized -> rerun init()
+  // window.addEventListener("scroll", _checkPositionMenuBtn);
+  // window.addEventListener("scroll", _checkPositionNav);
+
+  // If window gets resized -> rerun init
   window.addEventListener("resize", _init);
 
   menuBtn.addEventListener("click", _toggleMenu);
 }
 
+// Reveal hidden elements when come into view
 function _checkPosHiddenEls() {
   for (let elem of hiddenEls) {
     const posY = elem.getBoundingClientRect().top;
@@ -55,41 +67,8 @@ function _checkPosHiddenEls() {
   }
 }
 
-function _checkPositionMenuBtn() {
-  let menuBtnPosY = menuBtn.getBoundingClientRect().top;
-  console.log("projectsNav", projectsNav);
-  let projectsTitlePosBottom = projectsNav.getBoundingClientRect().bottom;
-
-  if (menuBtn.classList.contains("close")) {
-    return false;
-  }
-
-  if (menuBtnPosY <= projectsTitlePosBottom) {
-    for (let btnLine of menuBtnLine) {
-      btnLine.style.background = "rgb(48, 47, 47)";
-    }
-  } else {
-    for (let btnLine of menuBtnLine) {
-      btnLine.style.background = "#fff";
-    }
-  }
-}
-
-function _checkPositionNav() {
-  let navPosY = projectsNav.getBoundingClientRect().top;
-  if (navPosY < -150) {
-    nav.style.visibility = "hidden";
-    menuBtn.style.visibility = "visible";
-  } else {
-    menuBtn.style.visibility = "hidden";
-    if (menuBtn.classList.contains("close")) {
-      _toggleMenu();
-    }
-    nav.style.visibility = "visible";
-  }
-}
-
 function _checkPosPacman() {
+  console.log("_checkPosPacman");
   const blueGhost = document.querySelector(".blue-ghost");
   const greenGhost = document.querySelector(".green-ghost");
   const posY = pacmanImg.getBoundingClientRect().top;
@@ -121,7 +100,7 @@ function _checkPosPacman() {
   }
 }
 
-//////////////////
+///////////////////////////////////////////////////
 // Toggle Side-Menu & Menu Button (burger to X)
 function _toggleMenu() {
   if (!showMenu) {
@@ -133,14 +112,50 @@ function _toggleMenu() {
     showMenu = true;
   } else {
     menuBtn.classList.remove("close");
-    // for (let btnLine of menuBtnLine) {
-    //   btnLine.style.background = "#fff";
-    // }
-    _checkPositionMenuBtn();
+    for (let btnLine of menuBtnLine) {
+      btnLine.style.background = "#fff";
+    }
+    // _checkPositionMenuBtn();
     menu.classList.remove("show");
     showMenu = false;
   }
 }
+
+// Change color of menu button while scrolling, depending on background
+// function _checkPositionMenuBtn() {
+//   let menuBtnPosY = menuBtn.getBoundingClientRect().top;
+//   console.log("projectsNav", projectsNav);
+//   let projectsTitlePosBottom = projectsNav.getBoundingClientRect().bottom;
+
+//   if (menuBtn.classList.contains("close")) {
+//     return false;
+//   }
+
+//   if (menuBtnPosY <= projectsTitlePosBottom) {
+//     for (let btnLine of menuBtnLine) {
+//       btnLine.style.background = "rgb(48, 47, 47)";
+//     }
+//   } else {
+//     for (let btnLine of menuBtnLine) {
+//       btnLine.style.background = "#fff";
+//     }
+//   }
+// }
+
+// If scroll down to a certain point, hide nav menu and show menu btn
+// function _checkPositionNav() {
+//   let navPosY = projectsNav.getBoundingClientRect().top;
+//   if (navPosY < -150) {
+//     nav.style.visibility = "hidden";
+//     menuBtn.style.visibility = "visible";
+//   } else {
+//     menuBtn.style.visibility = "hidden";
+//     if (menuBtn.classList.contains("close")) {
+//       _toggleMenu();
+//     }
+//     nav.style.visibility = "visible";
+//   }
+// }
 
 window.onload = () => {
   _init();

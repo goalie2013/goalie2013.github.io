@@ -6,14 +6,17 @@ let directionPac = 0;
 let currPic = 0;
 let pos = -20;
 let interval;
+let intervalPacman;
 
 let pacmanObj = {};
 const ghostObj = {};
 
 function makePacman(pacmanImg) {
+  console.log("makePacman");
+
   let currPic = 0;
   let direction = 0;
-  let positionX = 40;
+  let positionX = parseInt(pacmanImg.style.left);
 
   return {
     img: pacmanImg,
@@ -24,16 +27,16 @@ function makePacman(pacmanImg) {
 }
 
 function runPacmanAnim(pmanObj) {
-  console.log("pmanObj", pmanObj);
+  // console.log("pmanObj", pmanObj);
   if (pmanObj) {
     pacmanObj = pmanObj;
   } else {
   }
-  console.log("pacmanObj", pacmanObj);
+  // console.log("pacmanObj", pacmanObj);
   const arrSize = pacArr.length;
   pacmanObj.currPic = (pacmanObj.currPic + 1) % arrSize;
   //directionPac = checkPageBounds(directionPac);
-  pacmanObj.img.src = `../img/${pacArr[pacmanObj.currPic]}`;
+  pacmanObj.img.src = `./dist/img/${pacArr[pacmanObj.currPic]}`;
   pacmanObj.img.alt = "Pacman";
 
   pacmanObj.direction = _checkBoundaries(pacmanObj);
@@ -49,7 +52,7 @@ function runPacmanAnim(pmanObj) {
     pacmanObj.img.style.top = "70%";
   }
 
-  setTimeout(runPacmanAnim, 100);
+  intervalPacman = setTimeout(runPacmanAnim, 100);
 }
 
 function _checkBoundaries(el) {
@@ -89,15 +92,15 @@ function runGhostAnim(ghostArr) {
   // Need to store in Object bc parameters get erased after the first time setTimeout is called
 
   if (ghostObj.ghosts) {
-    console.log("GHOSTS");
+    // console.log("GHOSTS");
   } else {
-    console.log("NOT GHOSTS");
+    // console.log("NOT GHOSTS");
     ghostObj.ghosts = ghostArr;
   }
 
   // console.log(ghostObj.ghosts);
   ghostObj.ghosts.forEach((ghost) => {
-    console.log("ghost", ghost);
+    // console.log("ghost", ghost);
     ghost.direction = _checkPageBounds(ghost);
 
     if (ghost.direction) {
@@ -134,4 +137,22 @@ function _checkPageBounds(ghost) {
   return ghost.direction;
 }
 
-export { makePacman, ghostFactory, runPacmanAnim, runGhostAnim };
+function resetPacmenAnim() {
+  if (interval) {
+    clearTimeout(interval);
+    runGhostAnim();
+  }
+
+  if (intervalPacman) {
+    clearTimeout(intervalPacman);
+    runPacmanAnim();
+  }
+}
+
+export {
+  makePacman,
+  ghostFactory,
+  runPacmanAnim,
+  runGhostAnim,
+  resetPacmenAnim,
+};

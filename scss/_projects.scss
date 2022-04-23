@@ -1,15 +1,23 @@
 @import "config";
 
-#projects-body {
-  font-family: "Cardo", "Roboto Mono";
+.body-projects {
+  font-family: "Cardo", "Roboto Mono", "Segoe UI", Tahoma;
+  // min-height: 100vh;
+  // min-width: 100%;
+  line-height: 1.5;
+  margin: 0;
 }
 
-#projects-nav {
-  a {
-    color: $primary-color;
-    &:hover {
-      color: $secondary-color;
-      @include easeOut();
+.header-projects {
+  font-family: "Cardo", "Roboto Mono";
+  background: #eee;
+  .main-nav {
+    a {
+      color: $primary-color;
+      &:hover {
+        color: $secondary-color;
+        @include easeOut();
+      }
     }
   }
 }
@@ -17,7 +25,7 @@
 section {
   &#projects {
     background: #eee;
-    min-height: 100vh;
+    // min-height: 100vh;
     color: black;
 
     .projects-jumbotron {
@@ -29,8 +37,10 @@ section {
       justify-content: center;
       #projects-title {
         // min-height: 80vh;
-        align-self: center;
+        // align-self: center;
         margin: auto;
+        font-size: 4rem;
+        font-family: "Roboto Mono";
       }
       .d-arrow {
         align-self: center;
@@ -48,6 +58,8 @@ section {
 
     .projects-container {
       display: grid;
+      // min-width: 100vw;
+
       //   gap: 2rem;
       //   background-color: rgb(209, 204, 204);
     }
@@ -73,6 +85,7 @@ section {
       border: 2px solid white;
       position: relative;
       min-height: 90vh;
+      width: 100vw;
       display: grid;
       gap: 5px;
       grid-template-columns: repeat(3, 1fr);
@@ -86,13 +99,16 @@ section {
         display: flex;
         flex-direction: column;
         align-items: start;
-        justify-content: space-evenly;
+
+        #pacman-title {
+          margin-top: 2rem;
+        }
       }
 
       .pacman-b {
         img {
-          height: 10vh;
-          width: 10vh;
+          height: 8vh;
+          width: 8vw;
           margin: 1rem;
           position: absolute;
           left: -20px;
@@ -128,7 +144,6 @@ section {
       //   transform: skewY(3deg);
       // background-image: -webkit-linear-gradient(150deg, #34adff 44%, #eee 36%);
       background-image: linear-gradient(45deg, #fcfbfa, #f8faf4);
-
       min-height: 90vh;
       display: grid;
       gap: 5px;
@@ -259,6 +274,51 @@ section {
         // color: #34adff;
         transform: scale(1.08, 1.08);
       }
+    }
+  }
+
+  .brickB-container {
+    //   transform: skewY(3deg);
+    // background-image: -webkit-linear-gradient(150deg, #34adff 44%, #eee 36%);
+    background-image: linear-gradient(45deg, #fcfbfa, #f8faf4);
+
+    min-height: 90vh;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "brickB brickB brickRight"
+      "brickB brickB brickRight";
+  }
+
+  .brickB {
+    grid-area: brickB;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .brickBRight {
+    grid-area: brickRight;
+    //   border: 5px solid black;
+    background: #d5e8f4;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+
+    p {
+      font-size: 1.2rem;
+      padding: 1rem;
+    }
+
+    .project-btn {
+      background-color: #34adff;
+    }
+    .project-btn:hover {
+      // background-color: $white;
+      // color: #34adff;
+      transform: scale(1.08, 1.08);
     }
   }
 }

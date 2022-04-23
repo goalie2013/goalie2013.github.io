@@ -4,7 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="./dist/css/main.css" />
+
+    <!-- CSS Reset -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
+    />
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,13 +33,13 @@
     <title>Gabriel's Projects</title>
   </head>
 
-  <body id="projects-body">
+  <body>
     <!-- Header -->
-    <header id="header-projects">
+    <header class="header-projects">
       <!-- Menu Nav -->
-      <nav class="main-nav" id="projects-nav">
+      <nav class="main-nav">
         <ul>
-          <li><a href="../../index.html">Home</a></li>
+          <li><a href="./index.html">Home</a></li>
           <li><a href="#">About</a></li>
           <li><a href="./projects.html">Projects</a></li>
           <li><a href="#">Contact</a></li>
@@ -48,19 +55,21 @@
 
       <!-- Menu Nav -->
       <nav class="menu">
-        <div class="menu-branding">
-          <div class="portrait"></div>
+        <div class="menu-left">
+          <div class="menu-img-wrapper">
+            <img id="me-img" src="./dist/img/me.png" alt="Gabriel's Portrait" />
+          </div>
         </div>
 
         <div class="menu-nav">
           <ul>
-            <li class="nav-item current">
-              <a href="../../index.html" class="nav-link">Home</a>
+            <li class="nav-item">
+              <a href="./index.html" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
               <a href="#about" class="nav-link">About Me</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item current">
               <a href="./projects.html" class="nav-link">Projects</a>
             </li>
             <li class="nav-item">
@@ -84,23 +93,25 @@
         <div class="pacman-container">
           <div class="pacman">
             <!-- <div class="pacman-a"> -->
-            <h3 class="project-header hidden">Pac-Man Factory</h3>
+            <h3 class="project-header hidden" id="pacman-title">
+              Pac-Man Factory
+            </h3>
             <!-- </div> -->
             <div class="pacman-b hidden">
               <img
-                src="../img/pacman1.png"
+                src="./dist/img/pacman1.png"
                 alt="Pacman mouth open"
                 class="hidden abc"
               />
               <!-- <img src="../dist/img/pacman2.png" alt="Pacman mouth closed" />
                 -->
               <img
-                src="../img/green_ghost.png"
+                src="./dist/img/green_ghost.png"
                 alt="Pacman Green Ghost"
                 class="hidden green-ghost"
               />
               <img
-                src="../img/ghost_blue.png"
+                src="./dist/img/ghost_blue.png"
                 alt="Pacman Blue Ghost"
                 class="hidden blue-ghost"
               />
@@ -140,7 +151,7 @@
                 loop
                 autoplay
               ></lottie-player> -->
-              <img src="../img/bus.gif" alt="Bus GIF" id="busGif" />
+              <img src="./dist/img/bus.gif" alt="Bus GIF" id="busGif" />
             </div>
           </div>
           <div class="b-other">
@@ -193,10 +204,32 @@
           </div>
         </div>
 
+        <div class="brickB-container">
+          <div class="brickB">
+            <h3 class="project-header hidden">Brick Breaker</h3>
+            <div></div>
+          </div>
+          <div class="brickBRight">
+            <p>Brick Breaker Game</p>
+            <a
+              href="https://github.com/goalie2013/vanilla_game"
+              target="_blank"
+            >
+              <button class="project-btn">Github Repo</button>
+            </a>
+            <a
+              href="https://goalie2013.github.io/vanilla_game/"
+              target="_blank"
+            >
+              <button class="project-btn">Live Project</button>
+            </a>
+          </div>
+        </div>
+
         <!--  -->
       </div>
     </section>
 
-    <script src="../js/projects.js" type="module"></script>
+    <script src="./dist/js/projects.js" type="module"></script>
   </body>
 </html>

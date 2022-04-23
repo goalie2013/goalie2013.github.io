@@ -4,20 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="./dist/css/main.css" />
+
+    <!-- CSS Reset -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
+    />
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cardo&family=Roboto+Mono:wght@300;400&family=Rubik:wght@400;900&display=swap"
       rel="stylesheet"
     />
-    <!-- Bootstrap CSS only -->
-    <!-- <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    /> -->
+
     <!-- Font Awesome Kit -->
     <script
       src="https://kit.fontawesome.com/e2f4b015e3.js"
@@ -31,14 +33,14 @@
 
   <body id="bg-img">
     <!-- Header -->
-    <header>
+    <header id="home-header">
       <!-- Menu Nav -->
       <nav class="main-nav">
         <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="./dist/html/projects.html">Projects</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="./index.html" class="nav-lnk">Home</a></li>
+          <li><a href="#" class="nav-lnk">About</a></li>
+          <li><a href="./projects.html" class="nav-lnk">Projects</a></li>
+          <li><a href="#" class="nav-lnk">Contact</a></li>
         </ul>
       </nav>
 
@@ -50,8 +52,23 @@
         <!-- <i class="fa-solid fa-bars fa-2x"></i> -->
       </div>
       <nav class="menu">
-        <div class="menu-branding">
-          <div class="portrait"></div>
+        <div class="menu-left">
+          <div class="menu-img-wrapper">
+            <img id="me-img" src="./dist/img/me.png" alt="Gabriel's Portrait" />
+          </div>
+
+          <div class="menu-icons">
+            <a href="#">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/goalie2013/"
+              id="github-icon"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
         </div>
 
         <div class="menu-nav">
@@ -63,7 +80,7 @@
               <a href="#about" class="nav-link">About Me</a>
             </li>
             <li class="nav-item">
-              <a href="./dist/html/projects.html" class="nav-link">Projects</a>
+              <a href="./projects.html" class="nav-link">Projects</a>
             </li>
             <li class="nav-item">
               <a href="#contact" class="nav-link">Contact</a>
@@ -80,6 +97,9 @@
       <div class="overlay"></div>
 
       <div class="home-container">
+        <div class="home-img">
+          <img id="me-img" src="./dist/img/me.png" alt="Gabriel's Portrait" />
+        </div>
         <div class="home-text">
           <h1 class="lg-heading">
             Gabriel <span class="text-secondary">Grinstein</span>
@@ -88,12 +108,6 @@
             Web Developer, Programmer, Designer & Entrepreneur
           </h2>
           <div class="icons">
-            <!-- <a href="#">
-          <i class="fab fa-twitter fa-2x"></i>
-        </a>
-        <a href="#">
-          <i class="fab fa-facebook fa-2x"></i>
-        </a> -->
             <a href="#">
               <i class="fab fa-linkedin fa-2x"></i>
             </a>
@@ -106,9 +120,6 @@
               <i class="fab fa-github fa-2x"></i>
             </a>
           </div>
-        </div>
-        <div class="home-img">
-          <img src="./dist/img/photo-of-me.jpeg" alt="Gabriel's Portrait" />
         </div>
       </div>
     </section>

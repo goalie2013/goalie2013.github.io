@@ -91,6 +91,7 @@
         position: relative; }
     .menu .menu-left .menu-icons {
       margin-top: 1rem;
+      margin-left: 0.5rem;
       display: flex;
       flex-direction: row;
       align-items: flex-end;
@@ -102,8 +103,9 @@
         .menu .menu-left .menu-icons a:hover {
           color: #69bdf8;
           transition: all 0.6s ease-out; }
-      .menu .menu-left .menu-icons #github-icon {
-        margin-left: 1rem; }
+      .menu .menu-left .menu-icons #github-icon,
+      .menu .menu-left .menu-icons #mail-icon {
+        margin-left: 0.3rem; }
   .menu .menu-nav {
     background: black; }
     .menu .menu-nav .nav-item {
@@ -230,10 +232,11 @@ section.home .icons {
       color: #69bdf8;
       transition: all 0.6s ease-out; }
   section.home .icons #github-icon {
+    position: relative;
+    top: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center; }
+    align-items: center; }
 
 section.home .skills-wrapper h3 {
   margin-top: 5rem;

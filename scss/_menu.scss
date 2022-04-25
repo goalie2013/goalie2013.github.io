@@ -84,6 +84,7 @@
 
     .menu-icons {
       margin-top: 1rem;
+      margin-left: 0.5rem;
       display: flex;
       flex-direction: row;
       align-items: flex-end;
@@ -99,8 +100,9 @@
           @include easeOut();
         }
       }
-      #github-icon {
-        margin-left: 1rem;
+      #github-icon,
+      #mail-icon {
+        margin-left: 0.3rem;
       }
     }
   }

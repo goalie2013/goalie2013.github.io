@@ -1,7 +1,5 @@
 "use strict";
 
-import { runPacmanAnim, runGhostAnim } from "./pacman.js";
-
 const menuBtn = document.querySelector(".menu-btn");
 const menuBtnLine = document.getElementsByClassName("btn-line");
 const menu = document.querySelector(".menu");
@@ -50,6 +48,7 @@ function _checkPositionNavToChangeColor() {
 
 // Toggle Side-Menu & Menu Button (burger to X)
 function _toggleMenu() {
+  console.log("_toggleMenu");
   if (!showMenu) {
     menuBtn.classList.add("close");
     for (let btnLine of menuBtnLine) {

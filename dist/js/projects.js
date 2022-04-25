@@ -113,7 +113,7 @@ function _toggleMenu() {
   } else {
     menuBtn.classList.remove("close");
     for (let btnLine of menuBtnLine) {
-      btnLine.style.background = "#fff";
+      btnLine.style.background = "rgb(48, 47, 47)";
     }
     // _checkPositionMenuBtn();
     menu.classList.remove("show");

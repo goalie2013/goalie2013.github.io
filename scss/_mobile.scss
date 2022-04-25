@@ -1,5 +1,22 @@
 // Widescreens
 @include mediaXL {
+  section {
+    .pacman-container {
+      .pacman-b {
+        img {
+          height: 7vh;
+          width: 7vw;
+        }
+      }
+    }
+
+    .bus-container {
+      #busGif {
+        width: 25vw;
+        height: 35vh;
+      }
+    }
+  }
 }
 
 // Desktops/Laptops
@@ -45,6 +62,14 @@
       }
     }
   }
+  section#projects {
+    .projects-container {
+      p {
+        font-size: 1.75rem;
+        padding: 2rem;
+      }
+    }
+  }
 }
 
 @include projectsMd {
@@ -61,6 +86,7 @@
         .project-header {
           font-size: 2rem;
         }
+
         .pacman-container {
           grid-template-columns: 1fr;
           grid-template-rows: 1fr 1fr;
@@ -78,11 +104,12 @@
           }
           .pacman-b {
             img {
-              height: 5vh;
-              width: 5vw;
+              height: 6vh;
+              width: 6vw;
             }
           }
         }
+
         .bus-container {
           grid-template-columns: 1fr;
           grid-template-rows: 1fr 1fr;
@@ -90,13 +117,13 @@
             "bus"
             "b-other";
 
-          .bus {
-            #busGif {
-              width: 35vw;
-              height: 25vh;
-              box-shadow: 5px 5px 5px rgba(196, 188, 188, 0.8);
-            }
-          }
+          // .bus {
+          //   #busGif {
+          //     width: 35vw;
+          //     height: 25vh;
+          //     box-shadow: 5px 5px 5px rgba(196, 188, 188, 0.8);
+          //   }
+          // }
         }
 
         .eyes-container {
@@ -147,25 +174,15 @@
   }
 
   // Projects
-  // section#projects {
-  //   #pContainer {
-  //     h3 {
-  //       font-size: 2rem;
-  //     }
-  //     .eyes {
-  //       top: 55%;
-  //       width: 100%;
-  //     }
-  //     .eye {
-  //       width: 6vw;
-  //       height: 5vh;
-  //     }
-  //     .eyeball {
-  //       width: 2vw;
-  //       height: 2vh;
-  //     }
-  //   }
-  // }
+  section#projects {
+    .bus-container {
+      #busGif {
+        width: 35vw;
+        height: 20vh;
+        // box-shadow: 5px 5px 5px 5px rgba($color: red, $alpha: 0.8);
+      }
+    }
+  }
 
   //TODO: Change menu to 1 column 2 rows for small screen
 

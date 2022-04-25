@@ -33,16 +33,17 @@
     <title>Gabriel's Projects</title>
   </head>
 
-  <body>
+  <body class="projects-body" id="topPg">
     <!-- Header -->
     <header class="header-projects">
       <!-- Menu Nav -->
       <nav class="main-nav">
         <ul>
+          <li></li>
           <li><a href="./index.html">Home</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="./about.html">About</a></li>
           <li><a href="./projects.html">Projects</a></li>
-          <li><a href="#">Contact</a></li>
+          <li></li>
         </ul>
       </nav>
 
@@ -50,14 +51,29 @@
         <div class="btn-line"></div>
         <div class="btn-line"></div>
         <div class="btn-line"></div>
-        <!-- <i class="fa-solid fa-bars fa-2x"></i> -->
       </div>
 
       <!-- Menu Nav -->
       <nav class="menu">
         <div class="menu-left">
           <div class="menu-img-wrapper">
-            <img id="me-img" src="./dist/img/me.png" alt="Gabriel's Portrait" />
+            <img
+              id="menu-img"
+              src="./dist/img/me.png"
+              alt="Gabriel's Portrait"
+            />
+          </div>
+          <div class="menu-icons bt">
+            <a href="www.linkedin.com/in/gabriel-grinstein">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/goalie2013/"
+              id="github-icon"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+            </a>
           </div>
         </div>
 
@@ -67,13 +83,10 @@
               <a href="./index.html" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="#about" class="nav-link">About Me</a>
+              <a href="./about.html" class="nav-link">About Me</a>
             </li>
             <li class="nav-item current">
               <a href="./projects.html" class="nav-link">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link">Contact</a>
             </li>
           </ul>
         </div>
@@ -103,8 +116,6 @@
                 alt="Pacman mouth open"
                 class="hidden abc"
               />
-              <!-- <img src="../dist/img/pacman2.png" alt="Pacman mouth closed" />
-                -->
               <img
                 src="./dist/img/green_ghost.png"
                 alt="Pacman Green Ghost"
@@ -157,8 +168,9 @@
           <div class="b-other">
             <p>
               The Realtime Bus Routes activity showcases using an API and a
-              mapping service to show data in realtime. In this case, current
-              buses on their bus routes in the Greater Boston Area.
+              mapping service to show data in realtime. The project displays
+              markers representing current buses on their bus routes in the
+              Greater Boston Area.
             </p>
             <a
               href="https://github.com/goalie2013/realtime-bus-tracker"
@@ -167,7 +179,7 @@
               <button class="project-btn">Github Repo</button>
             </a>
             <a
-              href="https://goalie2013.github.io/pacman-factory/"
+              href="https://goalie2013.github.io/realtime-bus-tracker/"
               target="_blank"
             >
               <button class="project-btn">Live Project</button>
@@ -187,7 +199,8 @@
             <p>
               This exercise is a practice in CSS styling and dynamic styling in
               JavaScript, as well as using Events. In this activity, the eyes
-              will follow the user as they move the mouse around.
+              will follow the user as they move the mouse around. <br /><br />
+              NOTE: Designed to work with a mouse.
             </p>
             <a
               href="https://github.com/goalie2013/eyeball-tracker"
@@ -204,28 +217,9 @@
           </div>
         </div>
 
-        <div class="brickB-container">
-          <div class="brickB">
-            <h3 class="project-header hidden">Brick Breaker</h3>
-            <div></div>
-          </div>
-          <div class="brickBRight">
-            <p>Brick Breaker Game</p>
-            <a
-              href="https://github.com/goalie2013/vanilla_game"
-              target="_blank"
-            >
-              <button class="project-btn">Github Repo</button>
-            </a>
-            <a
-              href="https://goalie2013.github.io/vanilla_game/"
-              target="_blank"
-            >
-              <button class="project-btn">Live Project</button>
-            </a>
-          </div>
-        </div>
-
+        <!-- <div>
+          <a class="back-top" href="#topPg"><h4>Back to Top</h4></a>
+        </div> -->
         <!--  -->
       </div>
     </section>

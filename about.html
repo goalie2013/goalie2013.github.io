@@ -4,14 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
 
     <link rel="stylesheet" href="./dist/css/main.css" />
-
     <!-- CSS Reset -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
     />
+    <!-- Font Awesome Kit -->
+    <script
+      src="https://kit.fontawesome.com/e2f4b015e3.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,16 +24,6 @@
       href="https://fonts.googleapis.com/css2?family=Cardo&family=Roboto+Mono:wght@300;400&family=Rubik:wght@400;900&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Font Awesome Kit -->
-    <script
-      src="https://kit.fontawesome.com/e2f4b015e3.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Lottie -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
-    <title>Welcome To My Portfolio</title>
   </head>
 
   <body class="bg-img">
@@ -92,46 +87,54 @@
       </nav>
     </header>
 
-    <!-- Main -->
-    <!-- <main> -->
-    <!-- Home -->
+    <!-- About Me Section -->
     <section class="home">
       <div class="overlay"></div>
 
       <div class="home-container">
-        <div class="home-img">
+        <!-- <div class="home-img">
           <img id="me-img" src="./dist/img/me.png" alt="Gabriel's Portrait" />
-        </div>
+        </div> -->
+        <iframe
+          id="youtube-vid"
+          src="https://www.youtube.com/embed/aO6yI0OUAbg"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
         <div class="home-text">
           <h1 class="lg-heading">
-            Gabriel <span class="text-secondary">Grinstein</span>
+            About <span class="text-secondary">Me</span>
           </h1>
           <h2 class="sm-heading">
-            Full Stack Web Development, JavaScript, and Python
+            Hi! I'm Gabriel, a Full-Stack Web Developer from San Diego, CA. I
+            concentrate on JavaScript and Python, using the MERN stack and
+            alternatively a Django or Flask framework.
           </h2>
-          <div class="icons">
-            <a href="www.linkedin.com/in/gabriel-grinstein" target="_blank">
-              <i class="fab fa-linkedin fa-2x"></i>
-            </a>
-            <a
-              href="https://github.com/goalie2013/"
-              id="github-icon"
-              target="_blank"
-            >
-              <p>goalie2013</p>
-              <i class="fab fa-github fa-2x"></i>
-            </a>
+          <div class="skills-wrapper">
+            <h3>Skills</h3>
+            <ul>
+              <li>Git/Github</li>
+              <li>HTML</li>
+              <li>CSS/Sass</li>
+              <li>JavaScript</li>
+              <li>Python</li>
+            </ul>
+          </div>
+
+          <div class="skills-wrapper">
+            <h3>Hobbies</h3>
+            <ul>
+              <li>Gardening</li>
+              <li>Soccer</li>
+              <li>Basketball</li>
+              <li>Fermentation</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- </main> -->
-
-    <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.2/lottie.min.js"
-      type="text/javascript"
-    ></script> -->
-    <script src="./dist/js/main.js" type="module"></script>
+    <script src="./dist/js/main.js"></script>
   </body>
 </html>

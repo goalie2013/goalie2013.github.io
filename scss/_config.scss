@@ -7,7 +7,7 @@ $home-img: url(../img/lightbulb2.jpeg);
 
 @mixin background {
   @if $show-home-image {
-    &#bg-img {
+    &.bg-img {
       background: $home-img;
       background-attachment: fixed;
       background-size: cover;

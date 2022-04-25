@@ -213,6 +213,8 @@ section.home .home-container {
     grid-area: home-txt; }
     section.home .home-container .home-text h1 {
       margin-top: 10vh; }
+    section.home .home-container .home-text #about-text {
+      margin-top: 1rem; }
   section.home .home-container #youtube-vid {
     margin: 0 auto;
     margin-top: 15vh;
@@ -459,15 +461,24 @@ section .eyes-right {
     visibility: hidden; }
   .sm-nav {
     visibility: visible; }
-  section#home {
+  section.home {
     align-items: center;
     text-align: center; }
-    section#home .home-container .home-text h1 {
-      margin-top: 5vh; }
-    section#home .home-container .home-text .icons {
+    section.home .home-container .home-text h1 {
+      margin-top: 5vh;
+      font-size: 4rem; }
+    section.home .home-container .home-text .icons {
       justify-content: center; }
-    section#home .home-container .home-img {
+    section.home .home-container .home-text #about-text {
+      text-align: left;
+      margin-top: 2rem; }
+    section.home .home-container .home-img {
       margin-top: 2vh; }
+    section.home .home-container #youtube-vid {
+      margin: 0 auto;
+      margin-top: 10vh;
+      width: 20rem;
+      height: 15rem; }
   section#projects .projects-container p {
     font-size: 1.75rem;
     padding: 2rem; } }

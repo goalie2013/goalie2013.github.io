@@ -44,7 +44,7 @@
   }
 
   // Home
-  section#home {
+  section.home {
     align-items: center;
     text-align: center;
 
@@ -52,13 +52,24 @@
       .home-text {
         h1 {
           margin-top: 5vh;
+          font-size: 4rem;
         }
         .icons {
           justify-content: center;
         }
+        #about-text {
+          text-align: left;
+          margin-top: 2rem;
+        }
       }
       .home-img {
         margin-top: 2vh;
+      }
+      #youtube-vid {
+        margin: 0 auto;
+        margin-top: 10vh;
+        width: 20rem;
+        height: 15rem;
       }
     }
   }

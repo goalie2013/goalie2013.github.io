@@ -4,11 +4,16 @@ My portfolio website introduces myself to the coding world and showcases my codi
 I am working to be a Fullstack Web Developer using the MERN stack, as well as using 
 Python frameworks such as Django and Flask.
 
+Home page is a landing page for the user, containing links to my github and linkedin profiles.
+About page contains a video introducing myself and discussing my coding goals.
+Projects page contains projects as a showcase of my skills. Each project is live, and there is a link for the user.
+
 ### My website showcases these skills:
 - Git
 - Github
 - HTML
 - CSS/Sass
+- Responsive Design
 - Bootstrap
 - JavaScript
 - Node Environment
